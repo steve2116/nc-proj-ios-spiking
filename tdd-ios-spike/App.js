@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, Linking, TouchableOpacity, Button, StyleSheet } from 'react-native';
 
-export default function App() {
+const ExternalLinkScreen = () => {
+  const handleOpenLink = () => {
+    const url = 'https://creative-jalebi-91e3e2.netlify.app';
+    Linking.openURL(url);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={StyleSheet.create({alignItems: 'center', justifyContent: 'center', height: '100%'})}>
+      <Button onPress={handleOpenLink} title="Open External Link"/>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default ExternalLinkScreen;
